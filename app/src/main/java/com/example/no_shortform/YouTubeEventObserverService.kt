@@ -28,7 +28,8 @@ class YouTubeEventObserverService : AccessibilityService() {
             }
         }
 
-        val shortsEvidence = ShortsEvidenceDetector.hasEvidence(packageName, viewId)
+        val configuration = blockingSettings.snapshot()
+        val shortsEvidence = ShortsEvidenceDetector.hasEvidence(packageName, viewId, configuration.mode)
         Log.d(
             LOG_TAG,
             "packageName=$packageName, " +
@@ -38,7 +39,7 @@ class YouTubeEventObserverService : AccessibilityService() {
         )
 
         blockingPolicy.tryBlock(
-            enabled = blockingSettings.enabled,
+            enabled = configuration.enabled,
             shortsEvidence = shortsEvidence,
             eventTime = event.eventTime,
             now = SystemClock.uptimeMillis(),

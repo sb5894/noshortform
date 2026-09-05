@@ -10,4 +10,16 @@ internal class BlockingSettings(context: Context) {
     var enabled: Boolean
         get() = preferences.getBoolean("enabled", false)
         set(value) { preferences.edit { putBoolean("enabled", value) } }
+
+    var mode: BlockingMode
+        get() = BlockingMode.fromStoredValue(preferences.all["mode"] as? String)
+        set(value) { preferences.edit { putString("mode", value.name) } }
+
+    fun snapshot(): BlockingConfiguration {
+        val values = preferences.all
+        return BlockingConfiguration(
+            enabled = values["enabled"] as? Boolean ?: false,
+            mode = BlockingMode.fromStoredValue(values["mode"] as? String)
+        )
+    }
 }
