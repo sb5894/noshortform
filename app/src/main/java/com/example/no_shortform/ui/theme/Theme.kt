@@ -1,58 +1,33 @@
-package com.example.no_shortform.ui.theme
+﻿package com.example.no_shortform.ui.theme
 
-import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Color
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
+internal data class CalmSurfaces(val ambient: Color, val glassAlpha: Float)
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
+internal val LocalCalmSurfaces = staticCompositionLocalOf {
+    CalmSurfaces(DesignTokens.lightAmbient, DesignTokens.lightGlassAlpha)
+}
 
 @Composable
 fun NoshortformTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    val surfaces = if (darkTheme) {
+        CalmSurfaces(DesignTokens.darkAmbient, DesignTokens.darkGlassAlpha)
+    } else {
+        CalmSurfaces(DesignTokens.lightAmbient, DesignTokens.lightGlassAlpha)
     }
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(LocalCalmSurfaces provides surfaces) {
+        MaterialTheme(
+            colorScheme = if (darkTheme) DesignTokens.darkColors else DesignTokens.lightColors,
+            typography = DesignTokens.typography,
+            content = content
+        )
+    }
 }

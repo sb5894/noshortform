@@ -2,16 +2,11 @@
     <string name="app_name">No-shortform</string>
     <string name="accessibility_service_name">No-shortform 이벤트 관찰</string>
     <string name="accessibility_service_description">개발용 YouTube 접근성 이벤트 관찰 및 Shorts 차단 서비스입니다. 개발 빌드에서 이벤트의 패키지명, 종류, 클래스명, 출처 뷰 ID와 Shorts 근거 여부를 Logcat에 출력합니다. 앱의 차단 스위치를 켜면 Shorts 후보 감지 시 뒤로 가기를 요청합니다. 화면 내용이나 영상 제목, 이미지를 저장하거나 전송하지 않습니다.</string>
-    <string name="observer_title">YouTube 이벤트 관찰</string>
-    <string name="observer_description">YouTube를 조작할 때 발생하는 접근성 이벤트를 확인하는 개발용 프로토타입입니다.</string>
     <string name="observer_data_notice">개발 빌드에서 패키지명, 이벤트 종류, 클래스명, 출처 뷰 ID와 Shorts 근거 여부(shortsEvidence)를 Logcat에 출력합니다. 화면 전체 내용, 영상 제목, 이미지, 로그 파일은 저장하지 않으며 네트워크로 전송하지 않습니다.</string>
     <string name="observer_scope_notice">shortsEvidence=true는 이번 이벤트가 선택한 모드의 Shorts 후보 ID에 일치했다는 뜻입니다. false는 단서를 찾지 못했다는 뜻이며 일반 영상이라고 확정하지 않습니다. 이 값은 차단 실행이나 성공 여부를 나타내지 않습니다.</string>
-    <string name="observer_instructions">아래 버튼으로 접근성 설정을 열고 ‘No-shortform 이벤트 관찰’을 직접 켜 주세요. 테스트가 끝나면 같은 설정에서 서비스를 꺼 주세요.</string>
     <string name="open_accessibility_settings">접근성 설정 열기</string>
     <string name="accessibility_settings_unavailable">접근성 설정을 열 수 없습니다. 기기의 설정 앱에서 접근성을 찾아 주세요.</string>
     <string name="blocking_label">Shorts 차단</string>
-    <string name="accessibility_enabled">접근성 설정: 서비스 켜짐</string>
-    <string name="accessibility_disabled">접근성 설정: 서비스 꺼짐. 아래 버튼으로 서비스를 먼저 켜 주세요.</string>
     <string name="blocking_enabled_notice">차단 켜짐: 접근성 서비스가 동작 중이면 Shorts 후보 감지 시 뒤로 가기를 요청합니다. 연속 요청은 2초 동안 제한합니다. 차단을 끄면 자동 뒤로 가기를 멈춥니다.</string>
     <string name="blocking_disabled_notice">차단 꺼짐: 자동 뒤로 가기는 하지 않고 이벤트만 관찰합니다. 접근성 서비스를 켠 뒤 차단 스위치를 켜 주세요.</string>
     <string name="blocking_debug_only">관찰과 차단은 개발 빌드에서만 사용할 수 있습니다. 이 빌드에서는 동작하지 않습니다.</string>
@@ -20,4 +15,19 @@
     <string name="mode_legacy_description">다음 영상으로 넘길 때 차단됩니다. 첫 영상 허용을 보장하지는 않습니다.</string>
     <string name="mode_entry_title">진입 차단</string>
     <string name="mode_entry_description">Shorts에 들어갔을 때부터 차단을 시도합니다. 첫 화면이 잠깐 보일 수 있습니다.</string>
+    <string name="service_status_on">접근성 서비스: 켜짐</string>
+    <string name="service_status_off">접근성 서비스: 꺼짐</string>
+    <string name="status_waiting_enabled">차단 설정은 켜져 있어요. 사용하려면 접근성 서비스를 켜 주세요.</string>
+    <string name="status_waiting_disabled">차단이 꺼져 있어요. 사용하려면 접근성 서비스를 켜 주세요.</string>
+    <string name="status_blocking_enabled">차단 설정이 켜져 있어요. Shorts 감지 시 뒤로 가기를 요청해요.</string>
+    <string name="status_blocking_disabled">차단이 꺼져 있어요. 자동 뒤로 가기는 하지 않아요.</string>
+    <string name="info_show">정보 및 사용법 펼치기</string>
+    <string name="info_hide">정보 및 사용법 접기</string>
+    <string name="info_expanded">펼쳐짐</string>
+    <string name="info_collapsed">접힘</string>
+    <string name="info_usage_title">사용법</string>
+    <string name="info_data_title">데이터 처리</string>
+    <string name="info_scope_title">동작 범위</string>
+    <string name="info_build_scope">관찰과 차단은 개발 빌드에서만 사용할 수 있습니다.</string>
+    <string name="info_usage">‘접근성 설정 열기’를 누르고 ‘No-shortform 이벤트 관찰’을 직접 켜 주세요. 앱으로 돌아와 차단 방식을 고르고 Shorts 차단 스위치를 켜 주세요. 차단을 꺼 둔 상태에서도 방식을 고를 수 있어요. 테스트가 끝나면 같은 접근성 설정에서 서비스를 꺼 주세요.</string>
 </resources>
