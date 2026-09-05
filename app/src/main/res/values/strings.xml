@@ -16,8 +16,8 @@
     <string name="blocking_disabled_notice">차단 꺼짐: 자동 뒤로 가기는 하지 않고 이벤트만 관찰합니다. 접근성 서비스를 켠 뒤 차단 스위치를 켜 주세요.</string>
     <string name="blocking_debug_only">관찰과 차단은 개발 빌드에서만 사용할 수 있습니다. 이 빌드에서는 동작하지 않습니다.</string>
     <string name="blocking_mode_title">차단 방식</string>
-    <string name="mode_legacy_title">기존 방식</string>
-    <string name="mode_legacy_description">현재 테스트에서는 다음 영상으로 넘길 때 차단됩니다. 첫 영상 허용을 보장하지는 않습니다.</string>
+    <string name="mode_legacy_title">스크롤 차단</string>
+    <string name="mode_legacy_description">다음 영상으로 넘길 때 차단됩니다. 첫 영상 허용을 보장하지는 않습니다.</string>
     <string name="mode_entry_title">진입 차단</string>
     <string name="mode_entry_description">Shorts에 들어갔을 때부터 차단을 시도합니다. 첫 화면이 잠깐 보일 수 있습니다.</string>
 </resources>
