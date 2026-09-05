@@ -106,6 +106,10 @@ Android Studio 터미널 밖에서 실행하는 경우 사용할 JDK와 Android 
 - `blocking_settings`에 `enabled`와 `mode`를 저장합니다. 모드는 `LEGACY` 또는 `ENTRY`이며, 누락되거나 알 수 없는 모드 값은 `ENTRY`로 해석합니다.
 - Logcat 태그: `YouTubeEventObserver`. `shortsEvidence=true`는 선택한 모드의 후보 ID 일치를 뜻하며 차단 성공 여부가 아닙니다. `false`도 일반 영상임을 확정하는 값이 아닙니다.
 
+## 크레딧
+
+앱 개발, UI 개선 및 문서 작성에 [OpenAI Codex](https://github.com/codex)를 활용했습니다.
+
 ## 보존한 체크포인트 (main, 5669689)
 
 - 사용자 기기에서 차단 스위치가 꺼져 있으면 Shorts를 계속 볼 수 있음을 확인했습니다.
