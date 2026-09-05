@@ -14,6 +14,24 @@ class ShortsEvidenceDetectorTest {
     }
 
     @Test
+    fun entryRecyclerFromYoutubeHasEvidence() {
+        assertTrue(ShortsEvidenceDetector.hasEvidence(youtube, "$youtube:id/reel_recycler"))
+    }
+
+    @Test
+    fun entryRecyclerRequiresExactIdAndYoutubePackage() {
+        listOf(null, "com.example.other").forEach { packageName ->
+            assertFalse(ShortsEvidenceDetector.hasEvidence(packageName, "$youtube:id/reel_recycler"))
+        }
+        listOf(
+            "reel_recycler", "$youtube:id/reel_recycler_preview",
+            "com.example.other:id/reel_recycler", " $youtube:id/reel_recycler"
+        ).forEach { id ->
+            assertFalse(ShortsEvidenceDetector.hasEvidence(youtube, id))
+        }
+    }
+
+    @Test
     fun observedNonCandidateIdsHaveNoEvidence() {
         listOf(
             "browse_fragment_layout_coordinator_layout",
